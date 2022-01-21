@@ -9,8 +9,7 @@ defmodule Pop3.MixProject do
       package: package(),
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
-      name: "pop3",
-      deps: deps()
+      name: "pop3"
     ]
   end
 
@@ -26,12 +25,6 @@ defmodule Pop3.MixProject do
       maintainers: ["TotallyNotMay"],
       licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/TotallyNotMay/pop3"}
-    ]
-  end
-
-  def deps() do
-    [
-      {:erlyconv, github: "eugenehr/erlyconv"}
     ]
   end
 end

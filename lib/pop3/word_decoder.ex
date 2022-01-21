@@ -123,5 +123,12 @@ defmodule Pop3.WordDecoder do
    defp encoding("koi8-u"), do: :koi8u
    defp encoding("koi8-r"), do: :koi8r
    defp encoding("windows-1251"), do: :cp1251
+   defp encoding("windows-1252"), do: :cp1252
+   defp encoding("iso-8859-1"), do: :iso8859_1
+   defp encoding("cp850"), do: :cp850
+   defp encoding("cp855"), do: :cp855
+   defp encoding("cp856"), do: :cp856
+   defp encoding("cp858"), do: :cp858
+   defp encoding("cp866"), do: :cp866
    defp encoding(_), do: []
 end
