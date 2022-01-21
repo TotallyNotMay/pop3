@@ -47,7 +47,7 @@ defmodule Pop3.WordDecoder do
            _ ->
               [_, charset, encoding, encoded_text] = found_word
               decoded_text = decode_word(encoded_text, encoding)
-              {charset, decoded_text}
+              {charset, to_unicode(decoded_text, encoding(charset))}
         end
      else
        {"us-ascii", text}
@@ -117,4 +117,11 @@ defmodule Pop3.WordDecoder do
       end
    end
 
+   defp to_unicode(text, []), do: text
+   defp to_unicode(text, encoding), do: :erlyconv.to_unicode(encoding, text)
+
+   defp encoding("koi8-u"), do: :koi8u
+   defp encoding("koi8-r"), do: :koi8r
+   defp encoding("windows-1251"), do: :cp1251
+   defp encoding(_), do: []
 end
